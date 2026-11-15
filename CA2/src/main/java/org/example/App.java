@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.controllers.AuctionLotSystemAPI;
 
 import java.io.IOException;
 
@@ -13,11 +15,16 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static AuctionLotSystemAPI auctionLotSystemAPI = new AuctionLotSystemAPI();
+
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("homepage.fxml"));
+        Pane p = fxmlLoader.load();
+        scene = new Scene(p, 640, 480);
+
         stage.setScene(scene);
         stage.show();
     }
