@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.AuctionLotController">
+   <children>
+      <BorderPane layoutX="-2.0" layoutY="2.0" prefHeight="640.0" prefWidth="734.0">
+         <left>
+            <TreeView fx:id="ALtreeView" onContextMenuRequested="#selectItem" onMouseClicked="#selectItem" prefHeight="568.0" prefWidth="191.0" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <HBox prefHeight="512.0" prefWidth="240.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="6.0" />
+                  <TextArea fx:id="detailsArea" prefHeight="512.0" prefWidth="249.0" />
+               </children>
+            </HBox>
+         </center>
+         <top>
+            <Label prefHeight="50.0" prefWidth="143.0" text="Add an Auction Lot" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Arial Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </top>
+         <right>
+            <Pane prefHeight="508.0" prefWidth="243.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="ALVboxForm" layoutX="-35.0" prefHeight="562.0" prefWidth="239.0">
+                     <children>
+                        <Label prefHeight="48.0" prefWidth="175.0" text="Add an Auction Lot">
+                           <font>
+                              <Font name="Arial Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Title:" />
+                        <Label />
+                        <TextField fx:id="ALtitleField" />
+                        <Label />
+                        <Label text="Description:" />
+                        <Label />
+                        <TextField fx:id="ALdescriptionField" />
+                        <Label />
+                        <Label text="Type:" />
+                        <Label />
+                        <ComboBox fx:id="ALtypeBox" prefWidth="150.0" />
+                        <Label />
+                        <Label text="Origin Date:" />
+                        <Label />
+                        <DatePicker fx:id="ALoriginDate" />
+                        <Label />
+                        <Label text="Asking Price:" />
+                        <Label />
+                        <TextField fx:id="ALaskingPriceField" />
+                        <Label />
+                        <Label text="Image:" />
+                        <Label />
+                        <TextField fx:id="ALimageField" />
+                        <Label />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="ALaddButton" mnemonicParsing="false" onAction="#addAuctionLot" text="Add" />
+                              <Label prefHeight="26.0" prefWidth="26.0" />
+                              <Button fx:id="AldeleteButton" mnemonicParsing="false" onAction="#removeAuctionLot" text="Delete " />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="bidVboxForm" layoutX="-34.0" prefHeight="498.0" prefWidth="276.0">
+                     <children>
+                        <Label prefHeight="48.0" prefWidth="175.0" text="Place a Bid">
+                           <font>
+                              <Font name="Arial Bold Italic" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Amount:" />
+                        <Label text="Label" />
+                        <TextField fx:id="BidAmountField" />
+                        <Label text="Label" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="BidAddButton" mnemonicParsing="false" onAction="#addAuctionLot" text="Add" />
+                              <Label prefHeight="26.0" prefWidth="26.0" />
+                              <Button fx:id="BidDeleteButton" mnemonicParsing="false" onAction="#removeAuctionLot" text="Delete " />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </right>
+         <bottom>
+            <HBox prefHeight="78.0" prefWidth="657.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</Pane>
