@@ -54,7 +54,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     @Override
-    public Iterator<T> iterator() {
+    public MyIterator<T> iterator() {
         return new MyIterator<>(first);
     }
 
