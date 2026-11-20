@@ -22,5 +22,6 @@
       <TextField fx:id="BidderNameField" layoutX="123.0" layoutY="106.0" />
       <TextField fx:id="BidderPhoneField" layoutX="123.0" layoutY="182.0" />
       <TextField fx:id="BidderEmailField" layoutX="123.0" layoutY="220.0" />
+      <Button fx:id="backButton" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonClick" text="Back" />
    </children>
 </Pane>

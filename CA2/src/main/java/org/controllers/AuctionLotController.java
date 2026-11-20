@@ -30,6 +30,42 @@ public class AuctionLotController {
     public VBox ALVboxForm;
     public VBox bidVboxForm;
     public TreeView<Object> ALtreeView;
+    public Button backButton;
+
+    @FXML
+    public void initialize() {
+
+        if (bidVboxForm != null) {
+            bidVboxForm.setVisible(false);
+        }
+
+        //for Plot type combobox
+        if (ALtypeBox != null) {
+            ALtypeBox.getItems().addAll("Porcelain", "Furniture", "Tech");
+        }
+
+
+        //for TreeView. If statement is necessary because this controller is used by homepage.fxml too, and it doesn't have a treeView.
+        //It allows the user to select a campsite they added, so that they can add an auction lot to it.
+        if (ALtreeView != null) {
+            TreeItem<Object> rootItem = new TreeItem<>("Auction Lots");
+            rootItem.setExpanded(true);
+
+
+            ALtreeView.setRoot(rootItem);
+
+            ALtreeView.getSelectionModel()
+                    .selectedItemProperty()
+                    .addListener((obs, oldItem, newItem) -> {
+
+                        if (newItem != null) {
+                            System.out.println("Selected: "
+                                    + newItem.getValue());
+                        }
+                    });
+
+        }
+    }
 
     //ADDING METHODS
     public void addAuctionLot(ActionEvent event) {
@@ -49,6 +85,7 @@ public class AuctionLotController {
         App.auctionLotSystemAPI.addAuctionLot(auctionLot);
         refreshTree();
     }
+
 
     //SELECTING
     public void selectItem() {
@@ -93,9 +130,6 @@ public class AuctionLotController {
                     "Amount: " + bid.getAmount()
             );
             }
-
-
-
     }
 
     //REMOVING METHODS
@@ -104,43 +138,6 @@ public class AuctionLotController {
     public void removeAuctionLot(MouseEvent event) {
 
     }
-
-
-    @FXML
-    public void initialize() {
-
-        if (bidVboxForm != null) {
-            bidVboxForm.setVisible(false);
-        }
-
-        //for Plot type combobox
-        if (ALtypeBox != null) {
-            ALtypeBox.getItems().addAll("Porcelain", "Furniture", "Tech");
-        }
-
-
-        //for TreeView. If statement is necessary because this controller is used by homepage.fxml too, and it doesn't have a treeView.
-        //It allows the user to select a campsite they added, so that they can add an auction lot to it.
-        if (ALtreeView != null) {
-            TreeItem<Object> rootItem = new TreeItem<>("Auction Lots");
-            rootItem.setExpanded(true);
-
-
-            ALtreeView.setRoot(rootItem);
-
-            ALtreeView.getSelectionModel()
-                    .selectedItemProperty()
-                    .addListener((obs, oldItem, newItem) -> {
-
-                        if (newItem != null) {
-                            System.out.println("Selected: "
-                                    + newItem.getValue());
-                        }
-                    });
-
-        }
-    }
-
 
     private void refreshTree() {
         if (ALtreeView == null) return;
@@ -153,5 +150,9 @@ public class AuctionLotController {
             root.getChildren().add(new TreeItem<>(it.next()));
         }
         ALtreeView.setRoot(root);
+    }
+
+    public void backButtonClick()  throws IOException {
+        App.setRoot("homepage");
     }
 }
