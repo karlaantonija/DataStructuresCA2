@@ -104,5 +104,6 @@
             <HBox prefHeight="78.0" prefWidth="657.0" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
+      <Button fx:id="backButton" layoutX="12.0" layoutY="12.0" mnemonicParsing="false" onAction="#backButtonClick" text="Back" />
    </children>
 </Pane>

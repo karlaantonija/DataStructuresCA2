@@ -8,6 +8,8 @@ import org.example.App;
 import org.models.Bidder;
 import javafx.scene.control.Button;
 
+import java.io.IOException;
+
 public class BidderController {
 
     public TextField BidderNameField;
@@ -15,6 +17,7 @@ public class BidderController {
     public TextField BidderPhoneField;
     public TextField BidderEmailField;
     public Button BidderAddButton;
+    public Button backButton;
 
     //ADDING METHODS
     public void addBidder(ActionEvent event) {
@@ -28,5 +31,9 @@ public class BidderController {
 
         App.auctionLotSystemAPI.addBidder(bidder);
         System.out.println("Bidder Added");
+    }
+
+    public void backButtonClick(ActionEvent actionEvent) throws IOException {
+        App.setRoot("homepage");
     }
 }
