@@ -2,25 +2,27 @@ package org.utils;
 
 import org.models.AuctionLot;
 
+import java.util.Comparator;
+
 public class MySort {
 
-    public static Node<AuctionLot> sortALTitle(Node<AuctionLot> headRef){
-        Node<AuctionLot> sorted = null;
-        Node<AuctionLot> firstCurrent = headRef;
+    public static <T> Node<T> insertionSort(Node<T> headRef, Comparator<T> c){
+        Node<T> sorted = null;
+        Node<T> firstCurrent = headRef;
 
 
         while (firstCurrent != null) {
-            Node<AuctionLot> next = firstCurrent.next;
+            Node<T> next = firstCurrent.next;
 
             // sortedInsert
-            Node<AuctionLot> newnode = firstCurrent;
-            if (sorted == null || sorted.data.title.compareTo(newnode.data.title) >= 0) {
+            Node<T> newnode = firstCurrent;
+            if (sorted == null || c.compare(sorted.data, newnode.data)  >= 0) {
                 newnode.next = sorted;
                 sorted = newnode;
             } else {
-                Node<AuctionLot> current = sorted;
+                Node<T> current = sorted;
 
-                while ( current.next != null && current.next.data.title.compareTo(newnode.data.title) < 0) {
+                while (current.next != null && c.compare(current.next.data, newnode.data) < 0) {
                     current = current.next;
                 }
                 newnode.next = current.next;
@@ -61,9 +63,12 @@ public class MySort {
         ALlist.insert(new AuctionLot("af", "desc", "Chair", null, 24.5, "dsad"));
         ALlist.insert(new AuctionLot("t", "desc", "Chair", null, 24.5, "dsad"));
         ALlist.insert(new AuctionLot("d", "desc", "Chair", null, 24.5, "dsad"));
+
         System.out.println("Linked List before Sorting..");
         printlist(ALlist.first);
-        ALlist.first = sortALTitle(ALlist.first);
+
+        ALlist.first = insertionSort(ALlist.first, (a,b) -> a.title.compareTo(b.title));
+
         System.out.println("\nLinkedList After sorting");
         printlist(ALlist.first);
     }
