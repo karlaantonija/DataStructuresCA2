@@ -19,11 +19,11 @@ public class AuctionLotSystemAPI {
     //ADDING METHODS
     public void addAuctionLot(AuctionLot a) {
         a.setAuctionLotIdentifier(nextAuctionLotId++);
-        auctionLotList.insert(a);
+        auctionLotList.add(a);
     }
 
     public void addBidder(Bidder b) {
         b.setBidderIdentifier(nextBidderId++);
-        bidderList.insert(b);
+        bidderList.add(b);
     }
 }

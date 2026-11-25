@@ -7,7 +7,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     public Node<T> first = null;
     public Iterator<T> itr = this.iterator();
 
-    public void insert(T data) {
+    public void add(T data) {
         Node<T> newNode = new Node<>(data);
 
         if (this.first == null) {
@@ -20,6 +20,18 @@ public class MyLinkedList<T> implements Iterable<T> {
 
             last.next = newNode;
         }
+    }
+
+    public void insertAfter(Node<T> prevNode, T data) {
+        if (prevNode == null) {
+            System.out.println("previous node cannot be null");
+            return;
+        }
+
+        Node<T> newNode = new Node<>(data);
+
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
     }
 
     public void removeNode(T data) {
@@ -52,6 +64,24 @@ public class MyLinkedList<T> implements Iterable<T> {
         }
 
     }
+
+    public void printList() {
+        Node<T> currNode = this.first;
+
+        System.out.print("LinkedList: ");
+
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the data at current node
+            System.out.print(currNode.data + " ");
+
+            // Go to next node
+            currNode = currNode.next;
+        }
+
+        System.out.println();
+    }
+
 
     @Override
     public MyIterator<T> iterator() {
