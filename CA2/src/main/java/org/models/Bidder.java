@@ -22,19 +22,10 @@ public class Bidder {
         this.bidderIdentifier = bidderIdentifier;
     }
 
-    public String getName() {
+
+    //displays the name in the treeview
+    @Override
+    public String toString() {
         return name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

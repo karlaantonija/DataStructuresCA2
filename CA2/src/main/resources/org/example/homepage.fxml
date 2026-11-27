@@ -3,9 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.HomepageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="643.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controllers.HomepageController">
    <children>
-      <Button fx:id="addAuctionLotPageButton" layoutX="221.0" layoutY="102.0" mnemonicParsing="false" onAction="#addAuctionLotView" text="Add Auction Lot and Bid" />
-      <Button fx:id="addBidderPageButton" layoutX="251.0" layoutY="152.0" mnemonicParsing="false" onAction="#addBidderView" text="Add a Bidder" />
+      <Button fx:id="addAuctionLotPageButton" layoutX="292.0" layoutY="172.0" mnemonicParsing="false" onAction="#addAuctionLotView" text="Add Auction Lot and Bid" />
+      <Button fx:id="addBidderPageButton" layoutX="323.0" layoutY="247.0" mnemonicParsing="false" onAction="#addBidderView" text="Add a Bidder" />
    </children>
 </Pane>

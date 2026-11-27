@@ -41,18 +41,18 @@ public class AuctionLotController {
 
         //for Plot type combobox
         if (ALtypeBox != null) {
-            ALtypeBox.getItems().addAll("Porcelain", "Furniture", "Tech");
+            ALtypeBox.getItems().addAll("Porcelain","Art", "Furniture", "Tech", "Literature");
         }
 
 
         //for TreeView. If statement is necessary because this controller is used by homepage.fxml too, and it doesn't have a treeView.
         //It allows the user to select a campsite they added, so that they can add an auction lot to it.
         if (ALtreeView != null) {
-            TreeItem<Object> rootItem = new TreeItem<>("Auction Lots");
-            rootItem.setExpanded(true);
 
-
-            ALtreeView.setRoot(rootItem);
+            refreshTree();
+            //TreeItem<Object> rootItem = new TreeItem<>("Auction Lots");
+            //rootItem.setExpanded(true);
+            //ALtreeView.setRoot(rootItem);
 
             ALtreeView.getSelectionModel()
                     .selectedItemProperty()
