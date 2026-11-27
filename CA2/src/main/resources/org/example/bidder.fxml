@@ -44,7 +44,7 @@
                   <TextField fx:id="BidderPhoneField" />
                   <Label text="Email:" />
                   <TextField fx:id="BidderEmailField" />
-                  <Label text="Label" />
+                  <Label/>
                   <Button fx:id="BidderAddButton" mnemonicParsing="false" onAction="#addBidder" text="Add" />
                </children>
             </VBox>

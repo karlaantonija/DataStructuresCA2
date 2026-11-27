@@ -74,6 +74,11 @@ public class BidderController {
         App.auctionLotSystemAPI.addBidder(bidder);
         System.out.println("Bidder Added");
         refreshTree();
+
+        BidderNameField.clear();
+        BidderAddressField.clear();
+        BidderPhoneField.clear();
+        BidderEmailField.clear();
     }
 
     private void refreshTree() {
